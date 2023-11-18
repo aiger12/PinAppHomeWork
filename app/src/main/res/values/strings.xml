@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PinAppHomeWork</string>
+    <string name="correct_pin">PIN is correct!</string>
+    <string name="incorrect_pin">PIN is not correct!</string>
+</resources>
