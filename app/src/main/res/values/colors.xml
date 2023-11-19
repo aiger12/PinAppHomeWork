@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="soft_pink">#FFCFF4</color>
     <color name="primary_text">#808080</color>
+    <color name="red">#FF0000</color>
 </resources>

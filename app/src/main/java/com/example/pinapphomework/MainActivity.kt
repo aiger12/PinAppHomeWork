@@ -1,15 +1,20 @@
 package com.example.pinapphomework
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
-val CORRECT_PIN="1567"
+val CORRECT_PIN = "1567"
+val KEY_COUNTER = "key_pin"
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,22 +31,40 @@ class MainActivity : AppCompatActivity() {
         initAcceptButton()
     }
 
-    fun initDeleteButton(){
-        val btnDelete:Button=findViewById(R.id.btn_back)
-        btnDelete.setOnClickListener{
-            enteredText=enteredText.dropLast(1)
+    fun initDeleteButton() {
+        val btnDelete: Button = findViewById(R.id.btn_back)
+        btnDelete.setOnClickListener {
+            enteredText = enteredText.dropLast(1)
             updateEnteredText()
         }
     }
 
-    fun initAcceptButton(){
-        val btnOK:Button=findViewById(R.id.btn_ok)
-        btnOK.setOnClickListener{checkPin()}
+    fun initAcceptButton() {
+        val btnOK: Button = findViewById(R.id.btn_ok)
+        btnOK.setOnClickListener { checkPin() }
     }
 
     fun checkPin() {
-        if(enteredText== CORRECT_PIN){Toast.makeText(this,R.string.correct_pin, Toast.LENGTH_SHORT).show()}
-        else{Toast.makeText(this,R.string.incorrect_pin, Toast.LENGTH_SHORT).show()}
+        if (
+            enteredText == CORRECT_PIN) {
+            Toast.makeText(this, R.string.correct_pin, Toast.LENGTH_SHORT).show()
+            val intet = Intent(this, SecondActivity::class.java)
+            startActivity(intet)
+        } else {
+            initColor(this)
+            Toast.makeText(this, R.string.incorrect_pin, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun initColor(context: Context) {
+        val errorColor = ContextCompat.getColor(context, R.color.red)
+        val pintext: TextView = findViewById(R.id.pin_text)
+
+        pintext.setTextColor(errorColor)
+        handler.postDelayed({
+            val defaultColor = ContextCompat.getColor(context, R.color.primary_text)
+            pintext.setTextColor(defaultColor)
+        }, 1500)
     }
 
     fun initNumButton() {
@@ -86,6 +109,22 @@ class MainActivity : AppCompatActivity() {
     fun updateEnteredText() {
         var pintext: TextView = findViewById(R.id.pin_text)
         pintext.text = enteredText
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        Log.d("MainActivity", "onSaveInstanceState() is called")
+
+        outState.putString(KEY_COUNTER, enteredText)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        Log.d("MainActivity", "onRestoreInstanceState() is called")
+
+        enteredText = savedInstanceState.getString(KEY_COUNTER).toString()
     }
 }
 
