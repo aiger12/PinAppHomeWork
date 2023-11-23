@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         if (
             enteredText == CORRECT_PIN) {
             Toast.makeText(this, R.string.correct_pin, Toast.LENGTH_SHORT).show()
-            val intet = Intent(this, SecondActivity::class.java)
+            val intet = Intent(this, ResultActivity::class.java)
             startActivity(intet)
         } else {
             initColor(this)

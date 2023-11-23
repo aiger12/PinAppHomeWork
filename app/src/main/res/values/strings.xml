@@ -2,4 +2,11 @@
     <string name="app_name">PinAppHomeWork</string>
     <string name="correct_pin">PIN is correct!</string>
     <string name="incorrect_pin">PIN is not correct!</string>
+    <string name="profile_name">Alma Serzhanova</string>
+    <string name="profile_email">alma.serzhanova@gmail.com</string>
+    <string name="share">Share</string>
+    <string name="send_by_email">Отправить по почте</string>
+    <string name="call">Позвонить</string>
+    <string name="open_cam">Запустить камеру</string>
+
 </resources>

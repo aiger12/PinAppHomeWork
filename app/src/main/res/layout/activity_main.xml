@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/btn_numfive"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="81px"
@@ -32,7 +32,7 @@
 
     <Button
         android:id="@+id/btn_numfour"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -45,7 +45,7 @@
 
     <Button
         android:id="@+id/btn_numsix"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -58,7 +58,7 @@
 
     <Button
         android:id="@+id/btn_numeight"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -71,7 +71,7 @@
 
     <Button
         android:id="@+id/btn_numseven"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -84,7 +84,7 @@
 
     <Button
         android:id="@+id/btn_numnine"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -96,7 +96,7 @@
 
     <Button
         android:id="@+id/btn_numtwo"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -109,7 +109,7 @@
 
     <Button
         android:id="@+id/btn_numone"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -121,7 +121,7 @@
 
     <Button
         android:id="@+id/btn_numthree"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -133,7 +133,7 @@
 
     <Button
         android:id="@+id/btn_numzero"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -146,7 +146,7 @@
 
     <Button
         android:id="@+id/btn_back"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -159,7 +159,7 @@
 
     <Button
         android:id="@+id/btn_ok"
-        style="@style/btn_primary_style"
+        style="@style/PINButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
