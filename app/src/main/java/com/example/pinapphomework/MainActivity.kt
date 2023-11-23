@@ -37,6 +37,13 @@ class MainActivity : AppCompatActivity() {
             enteredText = enteredText.dropLast(1)
             updateEnteredText()
         }
+
+        btnDelete.setOnLongClickListener {
+            // Long press detected, clear the entered PIN
+            enteredText = ""
+            updateEnteredText()
+            true
+        }
     }
 
     fun initAcceptButton() {
