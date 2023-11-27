@@ -8,5 +8,12 @@
     <string name="send_by_email">Отправить по почте</string>
     <string name="call">Позвонить</string>
     <string name="open_cam">Запустить камеру</string>
-
+    <string name="btn_read_news">Почитать новоcти</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_news">First news</string>
+    <string name="second_news">Second news</string>
+    <string name="third_news">Third news</string>
+    <string name="fourth_news">Fourth news</string>
+    <string name="fifth_news">Fifth news</string>
+    <string name="sixth_news">Sixth news</string>
 </resources>

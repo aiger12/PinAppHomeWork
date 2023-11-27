@@ -21,6 +21,15 @@ class ResultActivity : AppCompatActivity() {
         initButtonShareByEmail()
         initButtonCall()
         initButtonCamera()
+        initButtonNews()
+    }
+
+    private fun initButtonNews(){
+        val btnNews:Button=findViewById(R.id.btn_open_news)
+        btnNews.setOnClickListener {
+            val intentNews=Intent(this, NewsActivity::class.java)
+            startActivity(intentNews)
+        }
     }
     private fun initButtonShare() {
         val btnShare: Button = findViewById(R.id.btn_share)
