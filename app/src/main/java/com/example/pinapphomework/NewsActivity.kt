@@ -35,4 +35,6 @@ class NewsActivity : AppCompatActivity(), NewsClickListener{
             .commit()
     }
 
+
+
 }

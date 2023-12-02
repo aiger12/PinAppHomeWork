@@ -8,45 +8,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="20dp">
+        android:layout_marginStart="20dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_first_news"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/first_news"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/first_news" />
+
         <TextView
             android:id="@+id/tv_second_news"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/second_news"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/second_news" />
+
         <TextView
             android:id="@+id/tv_third_news"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/third_news"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/third_news" />
+
         <TextView
             android:id="@+id/tv_fourth_news"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/fourth_news"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/fourth_news" />
+
         <TextView
             android:id="@+id/tv_fifth_news"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/fifth_news"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/fifth_news" />
+
         <TextView
             android:id="@+id/tv_sixth_news"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/sixth_news"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/sixth_news" />
+
+        <Button
+            android:id="@+id/tv_back_news"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:text="Back" />
+        <Button
+            android:id="@+id/tv_next_news"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Next" />
     </LinearLayout>
 
 
