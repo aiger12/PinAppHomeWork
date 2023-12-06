@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.pinapphomework.Convertor.ConvertorActivity
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,7 @@ class ResultActivity : AppCompatActivity() {
         initButtonCall()
         initButtonCamera()
         initButtonNews()
+        initButtonConvertor()
     }
 
     private fun initButtonNews(){
@@ -76,6 +78,14 @@ class ResultActivity : AppCompatActivity() {
             } catch (e: ActivityNotFoundException) {
                 // display error state to the user
             }
+        }
+    }
+
+    private fun initButtonConvertor(){
+        val btnConvertor: Button = findViewById(R.id.btn_open_convertor)
+        btnConvertor.setOnClickListener {
+            val intentNews=Intent(this, ConvertorActivity::class.java)
+            startActivity(intentNews)
         }
     }
 }

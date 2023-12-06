@@ -78,5 +78,14 @@
             android:text="@string/btn_read_news"
             android:textAllCaps="false"></Button>
 
+        <Button
+            android:id="@+id/btn_open_convertor"
+            style="@style/ProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/open_convertor"
+            android:textAllCaps="false"></Button>
+
     </LinearLayout>
 </ScrollView>
