@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Convertor.ConvertorActivity"/>
         <activity android:name=".ResultActivity"/>
         <activity android:name=".NewsActivity"/>
     </application>

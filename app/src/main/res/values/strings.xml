@@ -16,4 +16,9 @@
     <string name="fourth_news">Fourth news</string>
     <string name="fifth_news">Fifth news</string>
     <string name="sixth_news">Sixth news</string>
+    <string name="open_convertor">Открыть конвертер</string>
+    <string name="currency">Currency</string>
+    <string name="dollarsUSA">Доллары, США</string>
+    <string name="liraTK">Лира, Турция</string>
+    <string name="btn_add_currency">Добавить</string>
 </resources>
