@@ -13,7 +13,9 @@
         android:background="@drawable/rounded_button"
         android:text="@string/btn_add_currency"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
