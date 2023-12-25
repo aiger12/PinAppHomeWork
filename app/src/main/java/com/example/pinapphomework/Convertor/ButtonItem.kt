@@ -1,4 +1,5 @@
 package com.example.pinapphomework.Convertor
 
-interface ButtonItem {
-}
+data class ButtonItem (
+    val name: String = "Добавить"
+) : MainI
