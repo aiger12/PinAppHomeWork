@@ -18,7 +18,9 @@
     <string name="sixth_news">Sixth news</string>
     <string name="open_convertor">Открыть конвертер</string>
     <string name="currency">Currency</string>
-    <string name="dollarsUSA">Доллары, США</string>
-    <string name="liraTK">Лира, Турция</string>
+    <string name="dollars">Доллары, США</string>
+    <string name="lyra">Лира, Турция</string>
+    <string name="tenge">Теңге, Казахстан</string>
+    <string name="euro">Евро, ЕС</string>
     <string name="btn_add_currency">Добавить</string>
 </resources>
