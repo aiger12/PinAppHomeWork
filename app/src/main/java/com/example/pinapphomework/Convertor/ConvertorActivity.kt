@@ -1,10 +1,17 @@
 package com.example.pinapphomework.Convertor
 
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.DOWN
 import androidx.recyclerview.widget.ItemTouchHelper.END
@@ -14,11 +21,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pinapphomework.R
+import com.example.pinapphomework.fragments.DeleteConfirmationDialogFragment
 
 class ConvertorActivity : AppCompatActivity(), OnButtonClickListener {
 
     lateinit var adapterRecyclerView: CurrencyAdapter
     lateinit var managerRecycleView: LinearLayoutManager
+    private var isDeleteMode = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_converter)
@@ -62,10 +72,52 @@ class ConvertorActivity : AppCompatActivity(), OnButtonClickListener {
                     adapterRecyclerView.deleteItem(position)
                     adapterRecyclerView.notifyItemRemoved(position)
                 }
+
+                override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+                    super.onSelectedChanged(viewHolder, actionState)
+                    val position = viewHolder?.adapterPosition
+                    if (position != null) {
+                        showDeleteConfirmationDialog(position)
+                    }
+                }
+
+                override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+                    super.clearView(recyclerView, viewHolder)
+                    if (isDeleteMode) {
+                        resetToolBar()
+                        isDeleteMode = false
+                    }
+                }
+
+
             })
         }
 
         itemToucheHelper.attachToRecyclerView(recyclerView)
+    }
+    private fun showDeleteConfirmationDialog(position: Int) {
+        changeToolBarToDeleteState()
+        val deleteConfirmationDialog = DeleteConfirmationDialogFragment.newInstance(position)
+        deleteConfirmationDialog.show(supportFragmentManager, "deleteConfirmationDialog")
+    }
+
+    private fun changeToolBarToDeleteState() {
+        supportActionBar?.apply {
+            val spannableTitle = SpannableString("Item Selected")
+            spannableTitle.setSpan(ForegroundColorSpan(Color.BLACK), 0, spannableTitle.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+            title = spannableTitle
+            setBackgroundDrawable(ContextCompat.getDrawable(this@ConvertorActivity, R.color.primary_text))
+            setHomeAsUpIndicator(R.drawable.ic_menu_delete)
+            setDisplayHomeAsUpEnabled(true)
+        }
+    }
+    private fun resetToolBar() {
+        supportActionBar?.apply {
+            title = "Converter"
+            setBackgroundDrawable(ContextCompat.getDrawable(this@ConvertorActivity, R.color.primary_text))
+            setDisplayHomeAsUpEnabled(false)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -79,6 +131,20 @@ class ConvertorActivity : AppCompatActivity(), OnButtonClickListener {
         when(item.itemId){
             R.id.sort_by_alphabet -> {
                 adapterRecyclerView.sortByAlphabet()
+                return true
+            }
+            android.R.id.home -> {
+                if (isDeleteMode) {
+                    // Handle back button press in delete mode
+                    resetToolBar()
+                    isDeleteMode = false
+                    return true
+                }
+            }
+            R.id.delete_currency -> {
+                // Show your delete confirmation dialog here
+                val deleteConfirmationDialog = DeleteConfirmationDialogFragment.newInstance(-1)
+                deleteConfirmationDialog.show(supportFragmentManager, "deleteConfirmationDialog")
                 return true
             }
         }

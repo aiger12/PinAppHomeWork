@@ -21,4 +21,9 @@
         android:id="@+id/drop"
         android:title="Сбросить сортировку">
     </item>
+    <item
+        android:id="@+id/delete_currency"
+        android:title="Удалить валюту"
+        android:icon="@drawable/ic_menu_delete"
+        app:showAsAction="always"/>
 </menu>
