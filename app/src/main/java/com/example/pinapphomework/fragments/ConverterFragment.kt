@@ -40,7 +40,6 @@ class ConverterFragment : Fragment(), OnButtonClickListener {
         adapterRecyclerView = CurrencyAdapter(object : OnButtonClickListener {
             override fun onButtonClick(listSize: Int) {}
         })
-        // Initialize your RecyclerView, BottomSheet, and other components here
         setupCurrencyData()
         setupRecyclerView(view)
         setupAddCurrencyButton(view)

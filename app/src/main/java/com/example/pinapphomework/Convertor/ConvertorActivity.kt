@@ -1,38 +1,20 @@
 package com.example.pinapphomework.Convertor
 
-import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.widget.Button
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.ItemTouchHelper.DOWN
-import androidx.recyclerview.widget.ItemTouchHelper.END
-import androidx.recyclerview.widget.ItemTouchHelper.START
-import androidx.recyclerview.widget.ItemTouchHelper.UP
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSmoothScroller
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pinapphomework.AccountFragment
-import com.example.pinapphomework.FavoriteFragment
+import com.example.pinapphomework.fragments.AccountFragment
+import com.example.pinapphomework.fragments.FavoriteFragment
 import com.example.pinapphomework.R
-import com.example.pinapphomework.SearchFragment
-import com.example.pinapphomework.TranslateFragment
+import com.example.pinapphomework.fragments.SearchFragment
+import com.example.pinapphomework.fragments.TranslateFragment
 import com.example.pinapphomework.fragments.ConverterFragment
-import com.example.pinapphomework.fragments.DeleteConfirmationDialogFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.textfield.TextInputEditText
 
 class ConvertorActivity : AppCompatActivity(), OnButtonClickListener {
 
