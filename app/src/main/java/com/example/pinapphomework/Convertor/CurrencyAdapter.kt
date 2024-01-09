@@ -28,12 +28,12 @@ class CurrencyAdapter(
 
     fun setItem(money:Currency){
         data.add(money)
-        notifyItemChanged(data.lastIndex)
+        notifyItemInserted(data.size-1)
     }
 
     fun setItemToPosition(money:Currency, position: Int){
         data.add(position,money)
-        notifyItemChanged(position)
+        notifyItemInserted(position)
     }
 
     fun sortByAlphabet() {
@@ -63,7 +63,7 @@ class CurrencyAdapter(
             }
 
             VIEW_TYPE_ADD_BUTTON -> {
-                ViewHolderAddButton(inflater,parent)
+                ViewHolderCurrency.ViewHolderAddButton(inflater, parent)
             }
 
             else -> throw IllegalArgumentException("Invalid view type")
@@ -81,7 +81,7 @@ class CurrencyAdapter(
             is ViewHolderCurrency ->{
                 holder.bind(data[position])
             }
-            is ViewHolderAddButton ->{
+            is ViewHolderCurrency.ViewHolderAddButton ->{
                 holder.bind(onButtonClickListener, position)
             }
         }
@@ -106,22 +106,24 @@ class CurrencyAdapter(
         val amount = itemView.findViewById<TextInputLayout>(R.id.amount)
         val currencyName: TextView = itemView.findViewById(R.id.currencyName)
 
-        fun bind(item: MainI ) {
-            item as Currency
-            currencyName.text = item.currencyName
-            amount.hint=item.currencyName
-            flagImage.setImageResource(item.flagImage)
-        }
-    }
+        fun bind(item: MainI) {
+            if (item is Currency) {
+                val valueInTenge = item.amount * item.conversionRateToTenge
 
-    class ViewHolderAddButton(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.button_add_currency, parent, false)) {
-        val btnAdd: Button = itemView.findViewById<Button>(R.id.btn_add_currency)
-        fun bind(onButtonClickListener: OnButtonClickListener, position: Int) {
-            btnAdd.setOnClickListener {
-                onButtonClickListener.onButtonClick(position)
+                currencyName.text = item.currencyName
+                amount.hint = valueInTenge.toString()
+                flagImage.setImageResource(item.flagImage)
+            }
+        }
+
+        class ViewHolderAddButton(inflater: LayoutInflater, parent: ViewGroup) :
+            RecyclerView.ViewHolder(inflater.inflate(R.layout.button_add_currency, parent, false)) {
+            val btnAdd: Button = itemView.findViewById<Button>(R.id.btn_add_currency)
+            fun bind(onButtonClickListener: OnButtonClickListener, position: Int) {
+                btnAdd.setOnClickListener {
+                    onButtonClickListener.onButtonClick(position)
+                }
             }
         }
     }
-
 }

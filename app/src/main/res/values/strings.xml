@@ -20,7 +20,8 @@
     <string name="currency">Currency</string>
     <string name="dollars">Доллары, США</string>
     <string name="lyra">Лира, Турция</string>
-    <string name="tenge">Теңге, Казахстан</string>
+    <string name="tenge">Тенге, Казахстан</string>
     <string name="euro">Евро, ЕС</string>
     <string name="btn_add_currency">Добавить</string>
+    <string name="choose_flag">Выбрать флаг</string>
 </resources>

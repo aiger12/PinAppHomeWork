@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="First"
+        android:id="@+id/first_fg"
+        android:icon="@drawable/translate"/>
+    <item android:title="Second"
+        android:id="@+id/second_fg"
+        android:icon="@drawable/favorite"/>
+    <item android:title="Third"
+        android:id="@+id/third_fg"
+        android:icon="@drawable/vector"/>
+    <item android:title="Fourth"
+        android:id="@+id/fourth_fg"
+        android:icon="@drawable/search"/>
+    <item android:title="Fifth"
+        android:id="@+id/fifth_fg"
+        android:icon="@drawable/account"/>
+</menu>
