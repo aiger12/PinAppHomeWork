@@ -34,17 +34,19 @@ class MainActivity : AppCompatActivity() {
     fun initDeleteButton() {
         val btnDelete: Button = findViewById(R.id.btn_back)
         btnDelete.setOnClickListener {
-            enteredText = enteredText.dropLast(1)
-            updateEnteredText()
+            if (enteredText.isNotEmpty()) {
+                enteredText = enteredText.dropLast(1)
+                updateEnteredText()
+            }
         }
 
         btnDelete.setOnLongClickListener {
-            // Long press detected, clear the entered PIN
             enteredText = ""
             updateEnteredText()
             true
         }
     }
+
 
     fun initAcceptButton() {
         val btnOK: Button = findViewById(R.id.btn_ok)
@@ -65,13 +67,33 @@ class MainActivity : AppCompatActivity() {
 
     private fun initColor(context: Context) {
         val errorColor = ContextCompat.getColor(context, R.color.red)
-        val pintext: TextView = findViewById(R.id.pin_text)
+        val pinDigits = listOf(
+            findViewById<TextView>(R.id.pin_digit_one),
+            findViewById<TextView>(R.id.pin_digit_two),
+            findViewById<TextView>(R.id.pin_digit_three),
+            findViewById<TextView>(R.id.pin_digit_four)
+        )
 
-        pintext.setTextColor(errorColor)
+        pinDigits.forEach { it.setTextColor(errorColor) }
+
         handler.postDelayed({
             val defaultColor = ContextCompat.getColor(context, R.color.primary_text)
-            pintext.setTextColor(defaultColor)
+            pinDigits.forEach { it.setTextColor(defaultColor) }
         }, 1500)
+    }
+
+
+    fun updateEnteredText() {
+        val pinDigits = listOf(
+            findViewById<TextView>(R.id.pin_digit_one),
+            findViewById<TextView>(R.id.pin_digit_two),
+            findViewById<TextView>(R.id.pin_digit_three),
+            findViewById<TextView>(R.id.pin_digit_four)
+        )
+
+        pinDigits.forEachIndexed { index, textView ->
+            textView.text = if (index < enteredText.length) enteredText[index].toString() else "•"
+        }
     }
 
     fun initNumButton() {
@@ -94,29 +116,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun someNumClicked(view: View) {
-
         if (view !is Button) {
             return
         } else {
             if (enteredText.length < 4) {
-                val clickedNum = view.text
+                val clickedNum = view.text.toString()
                 enteredText += clickedNum
                 updateEnteredText()
             } else {
-                val pintext: TextView = findViewById(R.id.pin_text)
-                pintext.text = "Pin is limited to 4 characters"
+                val messageText: TextView = findViewById(R.id.message_text)
+                messageText.text = "Pin is limited to 4 characters"
                 enteredText = "" // Optionally, clear the enteredText after showing the error
+                updateEnteredText() // Update the PIN view to reflect the cleared text
                 handler.postDelayed({
-                    pintext.text = "Enter a pin"
+                    messageText.text = "Enter a pin"
                 }, 2200)
             }
         }
     }
 
-    fun updateEnteredText() {
-        var pintext: TextView = findViewById(R.id.pin_text)
-        pintext.text = enteredText
-    }
+
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
