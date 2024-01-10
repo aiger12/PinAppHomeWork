@@ -1,5 +1,6 @@
 package com.example.pinapphomework.Convertor
 
+import AccountFragment
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -8,7 +9,6 @@ import android.text.style.ForegroundColorSpan
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.pinapphomework.fragments.AccountFragment
 import com.example.pinapphomework.fragments.FavoriteFragment
 import com.example.pinapphomework.R
 import com.example.pinapphomework.fragments.SearchFragment
